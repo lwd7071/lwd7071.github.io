@@ -75,8 +75,8 @@
         </p>
 
         <div class="hero-cta">
-          <!-- Đặt file cv.pdf vào thư mục root nếu có -->
-          <a href="cv.pdf" class="btn btn-primary" download title="Tải CV dạng PDF">
+          <!-- File CV myCV.pdf trong thư mục gốc -->
+          <a href="myCV.pdf" class="btn btn-primary" download="Luong_Viet_Vi_Dong_CV.pdf" target="_blank" title="Tải CV dạng PDF">
             <i class="fa-solid fa-download"></i> Tải CV
           </a>
           <a href="#contact" class="btn btn-dark">
@@ -89,9 +89,9 @@
         <div class="blob-wrapper">
           <!-- Nền cong vàng/gradient theo ảnh mẫu -->
           <div class="blob-bg"></div>
-          <!-- Ảnh đại diện: tự fallback về hình vẽ mẫu nếu chưa bỏ avatar.png vào root -->
+          <!-- Ảnh đại diện cá nhân từ avatar.jpg trong thư mục root -->
           <img 
-            src="avatar.png" 
+            src="avatar.jpg" 
             alt="Lương Viết Vĩ Đông" 
             class="hero-img" 
             onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=ViDong&backgroundColor=ffe066';" 
@@ -273,11 +273,76 @@
       </div>
 
       <div class="projects-grid">
+        <!-- Dự án 1: EdTech Tutor Marketplace -->
         <div class="project-card">
-          <div class="project-badge">Dự án tiêu biểu</div>
+          <div class="project-badge">EdTech / Fullstack</div>
+          <h3 class="project-title">EdTech Tutor Marketplace</h3>
+          <p class="project-desc">
+            Nền tảng kết nối trực tuyến giữa học viên và gia sư. Hỗ trợ tìm kiếm gia sư theo môn học, đặt lịch dạy học, quản lý lớp học và thanh toán trực tuyến.
+          </p>
+
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>PostgreSQL</span>
+            <span>RESTful API</span>
+            <span>JWT Auth</span>
+            <span>React</span>
+            <span>Vercel</span>
+          </div>
+
+          <ul class="project-highlights">
+            <li><i class="fa-solid fa-check"></i> Xây dựng backend kiến trúc đa tầng (Controller - Service - Repository) với Spring Boot.</li>
+            <li><i class="fa-solid fa-check"></i> Cơ chế xác thực phân quyền chặt chẽ giữa Student, Tutor và Admin.</li>
+            <li><i class="fa-solid fa-check"></i> Đã deploy bản thử nghiệm trực tiếp trên nền tảng đám mây Vercel.</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="https://github.com/lwd7071/edtech-tutor-marketplace" target="_blank" rel="noopener noreferrer" class="btn-link">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://edtech-tutor-marketplace.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-link demo-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Dự án 2: E-Commerce Platform -->
+        <div class="project-card">
+          <div class="project-badge">E-Commerce / Platform</div>
+          <h3 class="project-title">E-Commerce Platform</h3>
+          <p class="project-desc">
+            Nền tảng thương mại điện tử hiện đại phục vụ mua sắm trực tuyến với quy trình toàn diện từ duyệt danh mục sản phẩm, quản lý giỏ hàng, thanh toán đến kiểm soát đơn hàng.
+          </p>
+
+          <div class="project-tech">
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>PostgreSQL</span>
+            <span>RESTful API</span>
+            <span>Tailwind CSS</span>
+          </div>
+
+          <ul class="project-highlights">
+            <li><i class="fa-solid fa-check"></i> Thiết kế API chặt chẽ chuẩn RESTful, xử lý transaction khi tạo đơn hàng và trừ tồn kho.</li>
+            <li><i class="fa-solid fa-check"></i> Sử dụng TypeScript đảm bảo type-safe từ dữ liệu đầu vào đến kết quả trả về.</li>
+            <li><i class="fa-solid fa-check"></i> Tích hợp dashboard trực quan cho quản trị viên theo dõi doanh thu và tình trạng đơn.</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="https://github.com/lwd7071/e-commerce-platform" target="_blank" rel="noopener noreferrer" class="btn-link">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Dự án 3: Coffee POS Management System -->
+        <div class="project-card">
+          <div class="project-badge">POS / Realtime</div>
           <h3 class="project-title">Coffee POS Management System</h3>
           <p class="project-desc">
-            Hệ thống quản lý điểm bán hàng (POS) dành cho chuỗi quán cà phê. Hỗ trợ tạo đơn hàng, quản lý kho, phân quyền nhân viên và thông báo đơn mới tức thì cho quầy bar.
+            Hệ thống quản lý điểm bán hàng dành riêng cho chuỗi quán cà phê. Hỗ trợ tạo đơn gọi món nhanh, quản lý kho nguyên liệu và đồng bộ đơn hàng đến quầy pha chế theo thời gian thực.
           </p>
 
           <div class="project-tech">
@@ -291,14 +356,17 @@
           </div>
 
           <ul class="project-highlights">
-            <li><i class="fa-solid fa-check"></i> Thiết kế kiến trúc RESTful API chuẩn mực, xử lý logic hóa đơn phức tạp.</li>
-            <li><i class="fa-solid fa-check"></i> Tích hợp WebSocket truyền nhận trạng thái đơn order realtime không độ trễ.</li>
+            <li><i class="fa-solid fa-check"></i> Thiết kế kiến trúc RESTful API, tối ưu truy vấn cơ sở dữ liệu qua Prisma ORM.</li>
+            <li><i class="fa-solid fa-check"></i> Tích hợp WebSocket truyền nhận thông báo đơn order realtime không độ trễ.</li>
             <li><i class="fa-solid fa-check"></i> Đóng gói và triển khai thực tế trên máy chủ ảo VPS Linux cá nhân.</li>
           </ul>
 
           <div class="project-links">
-            <a href="https://github.com/lwd7071" target="_blank" rel="noopener noreferrer" class="btn-link">
-              <i class="fa-brands fa-github"></i> Xem mã nguồn
+            <a href="https://github.com/lwd7071/pos-coffee" target="_blank" rel="noopener noreferrer" class="btn-link">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://pos-coffee-six.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-link demo-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
             </a>
           </div>
         </div>
