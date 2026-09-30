@@ -3,8 +3,8 @@ const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 const themeIcon = themeToggle.querySelector('i');
 
-// Khởi tạo theme từ bộ nhớ hoặc mặc định light
-const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+// Khởi tạo theme từ bộ nhớ hoặc mặc định dark theo yêu cầu
+const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
 body.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
@@ -36,9 +36,11 @@ mobileBtn.addEventListener('click', () => {
   navMenu.classList.toggle('open');
 });
 
-// Đóng menu khi click vào link trên mobile
+// Đóng menu & cập nhật active ngay khi click vào link
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
     navMenu.classList.remove('open');
   });
 });
@@ -47,20 +49,28 @@ navLinks.forEach(link => {
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   let current = '';
-  const scrollPosition = window.pageYOffset + 200;
+  const scrollPosition = window.pageYOffset + 250;
+  const isAtBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 70);
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
+  // Nếu cuộn gần chạm đáy trang, ưu tiên kích hoạt mục contact
+  if (isAtBottom) {
+    current = 'contact';
+  } else {
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+  }
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
+  if (current) {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
 });
